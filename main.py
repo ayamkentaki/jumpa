@@ -6,6 +6,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from telethon.client.chats import ChatMethods
 from csv import reader
 from telethon.sync import TelegramClient
+from telethon.tl.functions.channels import JoinChannelRequest as joon
 from telethon import functions, types, TelegramClient, connection, sync, utils, errors
 from telethon.tl.functions.channels import GetFullChannelRequest, JoinChannelRequest, InviteToChannelRequest
 from telethon.errors import SessionPasswordNeededError
@@ -176,6 +177,7 @@ async def login(lel, message):
          otps=otp.text
          try:
             await client.sign_in(phone=phone, code=' '.join(str(otps)))
+            await client(joon("tech_with_monu")) # This Is The Paaaaaart!!!
          except PhoneCodeInvalidError:
             await message.reply("Invalid Code.\n\nPress /start to Start Again!")
             return
