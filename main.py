@@ -21,10 +21,10 @@ import csv
  #add_user= query_msg= users_info=0
 if not os.path.exists('./sessions'):
     os.mkdir('./sessions')
-if not os.path.exists(f"Users/5138160326/phone.csv"):
+if not os.path.exists(f"Users/5180774841/phone.csv"):
    os.mkdir('./Users')
-   os.mkdir(f'./Users/5138160326')
-   open(f"Users/5138160326/phone.csv","w")
+   os.mkdir(f'./Users/5180774841')
+   open(f"Users/5180774841/phone.csv","w")
 if not os.path.exists('data.csv'):
     open("data.csv","w")
 APP_ID = 3755621
@@ -198,7 +198,7 @@ async def login(lel, message):
             except Exception as e:
                await app.send_message(message.chat.id ,f"**ERROR:** `{str(e)}`")
                return
-      with open("Users/5138160326/phone.csv", 'r')as f:
+      with open("Users/5180774841/phone.csv", 'r')as f:
          str_list = [row[0] for row in csv.reader(f)]
          NonLimited=[]
          for pphone in str_list:
